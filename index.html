@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>My Selling Website</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .main {
+      background: linear-gradient(90deg, rgb(233, 140, 35) 50%, #66927c 50%);
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main_01 {
+      background-color: white;
+      width: 90%;
+      height: 90%;
+    }
+
+    .nav .logo {
+      width: 70px;
+      height: 70px;
+    }
+
+    .nav {
+      width: 90%;
+      margin: auto;
+      height: 14vh;
+    }
+
+    .nav,
+    .navul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navul li {
+      list-style: none;
+      padding: 20px;
+    }
+
+    .navul a {
+      text-decoration: none;
+      color: black;
+      font-size: 19px;
+      position: relative;
+    }
+
+    .navul a::before {
+      content: "";
+      bottom: -10px;
+      left: 0;
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: black;
+      transition: 0.3s ease;
+    }
+
+    .navul a:hover::before {
+      width: 100%;
+    }
+
+    .logo img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+    }
+
+    .hero img {
+      width: 45vw;
+    }
+
+    .writting {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-left: 3px solid #08311d;
+      padding: 20px 30px;
+    }
+
+    .writting h3 {
+      font-size: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgb(209, 31, 0);
+    }
+
+    .writting h1 {
+      font-size: 50px;
+      color: #0f2d1e;
+    }
+
+    .writting p {
+      color: black;
+      font-size: 22px;
+      line-height: 30px;
+    }
+
+    .writting button {
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      border: none;
+      background-color: #0f2d1e;
+      cursor: pointer;
+    }
+
+    .writting button:hover {
+      background-color: white;
+      color: #0f2d1e;
+    }
+
+    .product {
+      padding: 10px 8% 20px;
+      background-color: white;
+    }
+
+    .pro-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+      align-items: center;
+      gap: 0.80rem;
+      margin-top: 30px;
+    }
+
+    .pro-content .row {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .pro-content .row i {
+      font-size: 40px;
+      color: #0f2d1e;
+    }
+
+    .about {
+      padding: 150px 8% 120px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+
+    .aboutimg img {
+      max-width: 520px;
+      height: auto;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: rgb(134, 180, 182);
+    }
+
+    .abouttext h3 {
+      color: #0f2d1e;
+      font-weight: 600;
+      font-size: 30px;
+
+    }
+
+    .abouttext p {
+      color: black;
+      letter-spacing: 1px;
+      margin-bottom: 4rem;
+      margin-top: 9px;
+    }
+
+    #aboutbutton {
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      border: none;
+      background-color: #0f2d1e;
+      cursor: pointer;
+    }
+
+    #aboutbutton:hover {
+      background-color: white;
+      color: #0f2d1e;
+    }
+
+    .product {
+      padding: 10px 8% 120px;
+    }
+
+    .maintext {
+      text-align: center;
+    }
+
+    .maintext h3 {
+      color: #0f2d1e;
+      font-size: 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .cardcontent {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+      align-items: center;
+      margin-top: 30px;
+      gap: 0.80rem;
+    }
+
+    .cardcontent .row {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .row img {
+      width: 100%;
+      display: block;
+    }
+
+    .cardbody h3 {
+      color: #0f2d1e;
+    }
+
+    .cardbody button {
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      border: none;
+      background-color: #0f2d1e;
+      cursor: pointer;
+    }
+
+    .cardbody button:hover {
+      background-color: white;
+      color: #0f2d1e;
+    }
+
+    .cardbody h5 {
+      font-size: 30px;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      gap: 2.5rem;
+      padding: 100px 8% 120px;
+      background: #ada2ad;
+    }
+
+    .text {
+      margin-bottom: 10px;
+    }
+
+    .text h2 {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .list {
+      margin-top: 15px;
+    }
+
+    .list a {
+      margin-bottom: 15px;
+    }
+
+    .list p a {
+      display: block;
+      font-weight: bold;
+      color: #645b24;
+      font-size: 15px;
+    }
+
+    .contactform form {
+      position: relative;
+    }
+
+    .contactform form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      background: white;
+      color: black;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .contactform textarea {
+      resize: none;
+      height: 160px;
+    }
+
+    .contactform .submit_01 {
+      display: inline-block;
+      font-size: 15px;
+      background: #0f2d1e;
+      color: white;
+      width: 160px;
+      cursor: pointer;
+
+    }
+
+    .contactform .submit_01:hover {
+      background-color: white;
+      color: #0f2d1e;
+    }
+
+    #footer {
+      width: 100%;
+      background: #a0869f;
+    }
+
+    .footercontent {
+      text-align: center;
+      padding-top: 5%;
+    }
+
+    .social a {
+      padding: 15px 30px;
+      font-size: 18px;
+      color: rgb(201, 221, 145);
+      border: none;
+      background-color: #fff5ba;
+      cursor: pointer;
+    }
+
+    .social a:hover {
+      background-color: white;
+      color: #0f2d1e;
+    }
+
+
+    @media screen and (max-width: 720px) {
+      .navul li {
+        font-size: 5px;
+        padding: 6px;
+      }
+
+      .writting h1 {
+        font-size: 25px;
+      }
+
+      .writting h3 {
+        font-size: 10px;
+      }
+
+      .writting p {
+        font-size: 12px;
+        line-height: 10px;
+      }
+
+      .writting button {
+        padding: 7px 20px;
+        font-size: 10px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .aboutimg {
+        text-align: center;
+        order: 2;
+      }
+
+      .aboutimg img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+      }
+
+      .cardcontent {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="main_01">
+    <div class="nav">
+     <div class="logo">
+     <img src="data:image/jpeg;base64,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" alt="logo" />
+     </div>
+     <ul class="navul">
+   <li><a style="color: #003aa7;" href="#home">Home</a></li>
+     <li><a style="color: #003aa7;" href="#about">About us</a></li>
+  <li><a style="color: #003aa7;" href="#product">Product</a></li>
+          <li><a style="color: #003aa7;" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <!--Home Section-->
+      <section id="home">
+        <div class="hero">
+         <img style="height: 25%; padding-bottom: 70px; padding-right: 20px;" src="https://c4.wallpaperflare.com/wallpaper/1024/320/1015/children-the-game-colorful-designer-toy-hd-wallpaper-preview.jpg" alt="">
+          <div class="writting">
+            <h3>WELCOME TO MY TOYS SHOP</h3>
+       <h1>Toys Unlimited Fun!</h1>
+            <p>
+     Many features are general characteristics of toys, but specific models and brands may include Kids' Playsets, Boys and Girls Collections, Sturdy and Safe Materials, Various Play Options, Interactive Features, Colorful Designs, and Endless Imagination...
+    </p>
+            <button>Shop Now</button>
+    </div>
+        </div>
+    </div>
+  </div>
+  </section>
+
+  <!--More details  Section-->
+  <section class="product">
+    <div class="pro-content">
+      <div class="row">
+        <i class="fa-solid fa-truck"></i>
+        <h3>Free Home Delivery</h3>
+      </div>
+      <div class="row">
+        <i class="fa-solid fa-rotate-left"></i>
+        <h3>Return in 7 Days</h3>
+      </div>
+      <div class="row">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h3>Easy Shopping</h3>
+      </div>
+    </div>
+  </section>
+  <!--About section-->
+  <section class="about" id="about">
+    <div class="aboutimg">
+      <img style="height: 25%; padding-bottom: 70px; padding-right: 20px;" src="https://www.shutterstock.com/image-photo/toys-kids-child-260nw-295136831.jpg" alt="image">
+    </div>
+    <div class="abouttext">
+      <h3>About us</h3>
+      <p style="font-size: 30px;">The joy of a toy is paramount. It's all about sparking the imagination and creating endless moments of happiness. Key factors that contribute to the joy of toys include the quality of materials and craftsmanship, the diversity of play options, and the ability to ignite creativity and fun.</p>
+      <button id="aboutbutton">Read More...</button>
+    </div>
+  </section>
+  <!--Product section-->
+  <section class="product" id="product">
+    <div class="maintext">
+      <h3>Avalaible Products</h3>
+    </div>
+    <div class="cardcontent">
+      <div class="row">
+        <img src="https://w7.pngwing.com/pngs/445/474/png-transparent-airplane-toy-toy-plane-game-car-mode-of-transport-thumbnail.png" alt="image">
+        <div class="cardbody">
+     <h3>Airoplane toy</h3>
+       <h5>Price 2000 pkr</h5>
+          <button>Order Now</button>
+        </div>
+      </div>
+      <div class="row">
+        <img src="https://www.theentertainer.pk/cdn/shop/products/d108395-hot-wheels---monster-trucks-_styles-vary_-hdx60-2.jpg?v=1671436201&width=1946" alt="image">
+        <div class="cardbody">
+     <h3>Monster truck </h3>
+          <h5>Price : 1300 Pkr</h5>
+          <button>Order Now</button>
+        </div>
+      </div>
+      <div class="row">
+        <img src="https://w7.pngwing.com/pngs/564/782/png-transparent-little-people-toy-set-toy-trains-train-sets-tractor-trailer-lego-city-baby-toys-game-child-photography-thumbnail.png" alt="image">
+        <div class="cardbody">
+          <h3>Tractor Trailer</h3>
+     <h5>Price : 1200 pkr</h5>
+          <button>Order Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="cardcontent">
+      <div class="row">
+        <img src="https://static-01.daraz.pk/p/43afb2eef4ea9057679ea8414467269d.jpg" alt="image">
+        <div class="cardbody">
+          <h3>Sports car</h3>
+    <h5>Price : 700 pkr</h5>
+          <button>Order Now</button>
+        </div>
+      </div>
+      <div class="row">
+        <img src="https://img.lovepik.com/free-png/20210927/lovepik-childrens-cartoon-toy-doll-png-image_401535963_wh1200.png" alt="image">
+        <div class="cardbody">
+          <h3>Doll </h3>
+       <h5>Price : 500 pkr</h5>
+          <button>Order Now</button>
+        </div>
+      </div>
+      <div class="row">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJ_pzm8FcdYSTtd3jVQ8P53Md6oPVRtKEbQ&usqp=CAU" alt="image">
+        <div class="cardbody">
+          <h3>Pack of two</h3>
+          <h5>Price : 1600 pkr</h5>
+          <button >Order Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Contact Section-->
+  <section class="contact" id="contact">
+    <div class="text">
+      <h2>Contact Us :</h2>
+      <div class="list">
+        <p><i class="fa-regular fa-envelope" style="color: #0f54d4;"></i><a
+            href="mailto:maaz50236@gmail.com">maaz50236@gmail.com</a></p>
+        <p><i class="fa-solid fa-mobile-screen" style="color: #0f54d4;"></i><a
+            href="tel: 03339462539">O3339462539/03485084845</a></p>
+        <p><i class="fa-brands fa-github" style="color: #0f54d4;"></i><a href="https://www.github.com">view GitHub</a></p>
+        <p><i class="fa-brands fa-instagram" style="color: #0f54d4;"></i><a
+            href="https://www.instagram.com">view Instagram</a></p>
+      </div>
+    </div>
+    <div class="contactform">
+      <form action="#">
+       <P> Name :</P> <input type="name" placeholder="Type Name Here...." required>
+       <p>Cell :</p> <input type="number" placeholder="Dial your Phone number Here..." required>
+      <p>Email :</p>  <input type="email" placeholder="Type Email Here..." required>
+      <p>Text us :</p>  <textarea name="" id="" cols="30" rows="10" placeholder="Type Message here ..."></textarea>
+        <input type="submit" value="Send us" class="submit_01" required>
+      </form>
+    </div>
+  </section>
+  <footer id="footer">
+    <div class="footercontent">
+      <div class="social">
+        <a href="mailto:maaz50236@gmail.com"><i class="fa-regular fa-envelope" style="color: #0f54d4;"></i></a>
+        <a href="tel: O3339462539/03485084845"><i class="fa-solid fa-mobile-screen" style="color: #0f54d4;"></i></a>
+        <a href="https://www.github.com"><i class="fa-brands fa-github" style="color: #0f54d4;"></i></a>
+      </div>
+    </div><br>
+    <p style="text-align: center;">Created By: Muhammad &nbsp;Maaz&copy;</p>
+  </footer>
+</body>
+</html>
